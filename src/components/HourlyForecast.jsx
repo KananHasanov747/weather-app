@@ -1,7 +1,7 @@
 import React from "react";
-import icons from "../assets/icons";
+import images from "../assets/images";
 
-function Hour({ i, time, temp, icon }) {
+function Hour({ i, time, temp, wmo_code, is_day }) {
   return (
     <div className="flex">
       {i !== 0 ? (
@@ -12,7 +12,10 @@ function Hour({ i, time, temp, icon }) {
       <div className="flex flex-col items-center">
         <span className="text-sm text-dark-white font-semibold">{time}</span>
         <span className="px-6">
-          <img src={icons[icon]} alt="" />
+          <img
+            src={is_day ? images[wmo_code].day : images[wmo_code].night}
+            alt={images[wmo_code].description}
+          />
         </span>
         <span className="text-2xl text-light-white">{temp}°</span>
       </div>
@@ -21,15 +24,21 @@ function Hour({ i, time, temp, icon }) {
 }
 
 export default function HourlyForecast({ hourly }) {
-  const list = [];
-  for (let i = 0; i < hourly.temp.length; i++)
-    list.push(
-      <Hour
-        i={i}
-        time={hourly.time[i]}
-        temp={hourly.temp[i]}
-        icon={hourly.icon[i]}
-      />,
-    );
-  return list;
+  return (
+    <div className="w-full grid grid-cols-6">
+      {hourly.date.map((date, index) => (
+        <Hour
+          i={index}
+          time={new Date(date).toLocaleString("en-US", {
+            hour: "numeric",
+            minute: "numeric",
+            hour12: true,
+          })}
+          temp={hourly.temperature[index]}
+          wmo_code={hourly.weather_code[index]}
+          is_day={hourly.is_day[index]}
+        />
+      ))}
+    </div>
+  );
 }
