@@ -11,7 +11,7 @@ Used technologies:
 
 Steps for running the project (Unix/MacOS):
 
-- Download the project via (link)[https://github.com/KananHasanov747/weather-app]
+- Download the project via [link](https://github.com/KananHasanov747/weather-app)
 - You need to have two sessions working in the terminal in order to run both frontend and backend side
 - For frontend, install all important packages using `npm install` and run using `npm run dev`
 - For backend, create a Python virtual environment using `python -m venv .venv` and run with `source .venv/bin/activate`
