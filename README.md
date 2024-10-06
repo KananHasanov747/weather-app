@@ -1,40 +1,26 @@
-# Welcome to Remix!
+# Weather App
 
-- 📖 [Remix docs](https://remix.run/docs)
+Used technologies:
 
-## Development
+- Django & Remix as a solid foundation
+- Django REST Framework for API calls
+- TailwindCSS + DaisyUI for CSS
+- Open-Meteo as a global weather API data
 
-Run the dev server:
+Steps for running the project (Unix/MacOS):
 
-```shellscript
-npm run dev
-```
+- Download the project via [link](https://github.com/KananHasanov747/weather-app)
+- You need to have two sessions working in the terminal in order to run both frontend and backend side
+- For frontend, install all important packages using `npm install` and run using `npm run dev`
+- For backend, create a Python virtual environment using `python -m venv .venv` and run with `source .venv/bin/activate`
+- Install packages using `pip install -r requiremenets.txt` and run the backend side with `python manage.py runserver`
+- To access the admin account use the same name for both **login** and **password**
 
-## Deployment
+TODO:
 
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever css framework you prefer. See the [Vite docs on css](https://vitejs.dev/guide/features.html#css) for more information.
+- [x] **(required)** API call via using search engine with the provided data as a response from backend side for the near future
+- [ ] Written tests
+- [ ] Stored in Docker container
+- [x] Made autocomplete (hints) while typing the city name
+- [ ] During the revisit would be suggested to watch the forecast of the city, which was viewed by User
+- [ ] Will be saved the search history for each User individually, and will be an API showing the amount of times the specific city has been typed

@@ -13,4 +13,12 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
+  server: {
+    port: 3000,
+    cors: {
+      origin: ["http://localhost:8000"],
+      methods: ["GET", "POST"],
+      allowedHeaders: ["Content-Type", "Authorization"],
+    },
+  },
 });
