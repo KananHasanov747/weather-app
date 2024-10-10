@@ -16,7 +16,7 @@ __pycache__/
 # package managers (bun. uv)
 bun.lockb
 uv.lock
-src/
+/src
 
 # Environment files
 .env
