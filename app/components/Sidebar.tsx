@@ -30,7 +30,7 @@ export default function SideBar() {
       <img src={logo} alt="" className="w-11 mb-[1.25rem]" />
       <SideBarBtn Icon={FaCloudSunRain} text="Weather" url="/" />
       <SideBarBtn Icon={TfiMenuAlt} text="Cities" url="/cities" />
-      <SideBarBtn Icon={FaUser} text="Auth" url="/auth" />
+      <SideBarBtn Icon={FaUser} text="Auth" url="/auth/login" />
     </div>
   );
 }

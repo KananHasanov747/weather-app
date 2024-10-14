@@ -2,7 +2,8 @@ import { ActionFunctionArgs, redirect } from "@remix-run/node";
 import { Form, useActionData } from "@remix-run/react";
 import { VscError } from "react-icons/vsc";
 import SideBar from "~/components/Sidebar";
-import { Login, SignUp } from "~/services/authentication";
+import { Login } from "~/services/authentication";
+import { useNavigate } from "@remix-run/react";
 
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
@@ -31,6 +32,7 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export default function Auth() {
+  const navigate = useNavigate();
   const actionData = useActionData<{ error?: string }>();
 
   return (
@@ -67,9 +69,21 @@ export default function Auth() {
                 bg-light-gray text-[13px] text-light-white text-light-text  
                 placeholder:text-light-white"
             />
-            <button type="submit" className="btn btn-neutral rounded-[.6rem]">
-              Login
-            </button>
+            <div className="w-full flex gap-2">
+              <button
+                type="submit"
+                className="btn btn-neutral flex-grow rounded-[.6rem]"
+              >
+                Login
+              </button>
+              <button
+                type="button"
+                onClick={() => navigate("/auth/signup")}
+                className="btn btn-neutral flex-grow rounded-[.6rem]"
+              >
+                Signup
+              </button>
+            </div>
           </Form>
         </div>
       </div>
